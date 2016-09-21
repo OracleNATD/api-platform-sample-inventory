@@ -1,0 +1,69 @@
+FORMAT: 1A
+HOST: http://retail.oracle.org/
+
+# Inventory API
+
+Allows clients to query for Inventory information. Clients can decide if they want 
+to receive all the details for the particular Inventory or just the summary. 
+
+## Inventory [/Inventory]
+
+### Get All Inventory [GET]
+Returns all Inventory information
+
++ Response 200 (application/json)
+
+        [
+            {
+                "item": "1000",
+                "name": "Samsung 27 inches Widescreen LED Monitor, Black",                
+                "AvailableQuantity": "1048"
+            },
+            {
+                "item": "2000",
+                "name": "HP LaserJet Pro M402dn Monochrome Laser Printer",                
+                "AvailableQuantity": "55"
+            },
+            {
+                "item": "3000",
+                "name": "Logitech® K350 Wireless Keyboard, Black",                
+                "AvailableQuantity": "341"
+            }
+        ]
+
+## Inventory Details [/Inventory/details/{item}]
+
+### Get Inventory details [GET]
+Returns all details for a specific Inventory
+
++ Parameters
+    + item (number) - Inventory item number.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "item": "1000",
+                "name": "Samsung 27 inches Widescreen LED Monitor, Black",                
+                "AvailableQuantity": "1048"
+            }
+        ]
+
+
+## Inventory Summary [/Inventory/summary/{item}]
+
+### Get Inventory Summary [GET]
+Returns only a summary of the Inventory (name, price and summary).
+
++ Parameters
+    + item (number) - Inventory item number.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "item": "1000",
+                "name": "Samsung 27 inches Widescreen LED Monitor, Black",                
+                "AvailableQuantity": "1048"
+            }
+        ]
